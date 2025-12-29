@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Me</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cascadia+Mono:wght@200..700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --bg-main: #0b0f0d;
+        --accent: #192521;
+        --dark-accent: #131a18;
+        --primary: #00ff88;
+        --secondary: #00c46a;
+        --text: #e6fff2;
+        font-family: "Cascadia Mono", monospace;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        user-select: none;
+      }
+
+      body {
+        background: var(--bg-main);
+        color: var(--text);
+      }
+
+      @keyframes breathe {
+        0% {
+          transform: scale(1);
+          box-shadow: 0 0 25px var(--secondary);
+        }
+        50% {
+          transform: scale(1.03);
+          box-shadow: 0 0 40px var(--secondary);
+        }
+        100% {
+          transform: scale(1);
+          box-shadow: 0 0 25px var(--secondary);
+        }
+      }
+
+      /* ---------- Layout ---------- */
+
+      .container {
+        min-height: 100svh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: clamp(2rem, 5vw, 5rem);
+        padding: 5vw;
+      }
+
+      .pp,
+      .text {
+        flex: 1 1 0;
+        max-width: 600px;
+      }
+
+      /* ---------- Profile ---------- */
+
+      .pp {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      #profilepic-wrap {
+        width: min(320px, 70%);
+        aspect-ratio: 1 / 1;
+        border-radius: 50%;
+        animation: breathe 4s ease-in-out infinite;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      #profilepic {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background: var(--dark-accent);
+        border: 3px solid var(--secondary);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: transform 0.3s ease, border-color 0.3s ease;
+      }
+
+      #profilepic:hover {
+        transform: rotate(-10deg) scale(1.05);
+        border-color: var(--primary);
+      }
+
+      #profilepic img {
+        width: 75%;
+        height: auto;
+      }
+
+      /* ---------- Text ---------- */
+
+      .text {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      .text h1 {
+        font-size: clamp(3rem, 5vw, 4.5rem);
+        font-weight: 700;
+        color: var(--primary);
+        text-shadow: 0 0 5px var(--primary);
+        line-height: 1.1;
+      }
+
+      .text h1 span {
+        display: block;
+        font-size: clamp(3.5rem, 6vw, 5.5rem);
+        font-weight: 900;
+        color: var(--text);
+        text-shadow: none;
+      }
+
+      #info {
+        color: color-mix(in srgb, var(--text) 75%, transparent);
+        line-height: 1.6;
+      }
+
+      #info span {
+        color: var(--text);
+        font-weight: 500;
+      }
+
+      /* ---------- Buttons ---------- */
+
+      #buttons {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 12px;
+      }
+
+      #buttons div {
+        background: var(--accent);
+        border-radius: 15px;
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+      }
+
+      #buttons div:hover {
+        transform: scale(1.05);
+        box-shadow: inset 0 0 0 1px var(--primary);
+      }
+
+      #buttons h4 {
+        color: var(--primary);
+        font-size: 1rem;
+      }
+
+      #buttons p {
+        font-size: 0.8rem;
+        opacity: 0.9;
+      }
+
+      /* ---------- Mobile ---------- */
+
+      @media (max-width: 768px) {
+        .container {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .text {
+          align-items: center;
+        }
+
+        #buttons {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="pp">
+        <div id="profilepic-wrap">
+          <div id="profilepic">
+            <img src="./img/logo.png" alt="Logo" />
+          </div>
+        </div>
+      </div>
+
+      <div class="text">
+        <h1><span>A bit</span>about me.</h1>
+
+        <p id="info">
+          <span>Savindu here!</span><br /><br />
+          I'm a <span>computer enthusiast</span> who loves to be around
+          computers. As a kid I played games for hours every day then wanted to
+          learn how to make games. Spent couple years making games and now
+          switching to other interesting development kits for curiosity.<br /><br />I'm
+          not interested in programming like I did before now so I'm currently
+          trying to switch to hardware side like <span>PC building</span> and
+          also I'm following the road to <span>touch some grass</span>.
+        </p>
+
+        <div id="buttons">
+          <div>
+            <h4>Game Development</h4>
+            <p>Unity developer, currently learning Unreal Engine</p>
+          </div>
+          <div>
+            <h4>Web Developemnt</h4>
+            <p>Currently learning</p>
+          </div>
+          <div>
+            <h4>PC Building</h4>
+            <p>PC enthusiast since born</p>
+          </div>
+          <div>
+            <h4>Ragebaiting</h4>
+            <p>In a quest to become a top tier ragebaiter</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

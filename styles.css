@@ -1,0 +1,261 @@
+@import url("https://fonts.googleapis.com/css2?family=Cascadia+Mono:ital,wght@0,200..700;1,200..700&display=swap");
+
+:root {
+  --bg-main: #0b0f0d;
+  --accent: #192521;
+  --dark-accent: #131a18;
+  --primary: #00ff88;
+  --secondary: #00c46a;
+  --text: #e6fff2;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Cascadia Mono", sans-serif;
+  user-select: none;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-color: var(--bg-main);
+}
+
+.taskbar {
+  width: auto;
+  height: 7.5%;
+  background-color: var(--accent);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.taskbar > div {
+  height: 37px;
+  background-color: var(--accent);
+  aspect-ratio: 1 / 1;
+  padding: 2px;
+  border-radius: 10px;
+  cursor: pointer;
+  /* Hover Transition */
+  transition: background-color 0.15s ease;
+}
+
+.taskbar img {
+  user-select: none;
+  pointer-events: none;
+  /* optional */
+}
+
+.taskbar > div:hover {
+  background-color: rgb(50, 50, 50);
+}
+
+#t_middle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 240px;
+  aspect-ratio: auto;
+  background-color: var(--accent);
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+#t_middle > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 37px;
+  aspect-ratio: 1/1;
+  background-color: var(--accent);
+  padding: 2px;
+  border-radius: 10px;
+  /* Hover Transition */
+  transition: background-color 0.15s ease;
+}
+
+#t_middle > div:hover {
+  background-color: rgb(50, 50, 50);
+}
+
+#time {
+  background-color: var(--primary);
+  color: var(--accent);
+  padding: 3px;
+  padding-left: 7px;
+  padding-right: 7px;
+  border-radius: 15px;
+  user-select: none;
+}
+
+#time_div {
+  background-color: var(--accent);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 5px;
+  padding-right: 5px;
+  /* Hover Transition */
+  transition: background-color 0.15s ease;
+}
+
+#time_div:hover {
+  background-color: rgb(50, 50, 50);
+}
+
+#app {
+  position: relative;
+  width: 100%;
+  height: 92.5%;
+  overflow: hidden;
+}
+
+#app > div {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+#about_page,
+#projects_page,
+#contact_page {
+  display: flex;
+  flex-direction: column;
+
+  pointer-events: none;
+  visibility: hidden;
+
+  transform: translateX(var(--from-x, 0px)) translateY(50%) scale(0);
+
+  transition: transform 360ms cubic-bezier(0.2, 0.9, 0.1, 1),
+    opacity 260ms ease-out;
+
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  background-color: var(--dark-accent);
+}
+
+iframe {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+#about_page.on,
+#projects_page.on,
+#contact_page.on {
+  transform: translateX(0) translateY(0) scale(1);
+  pointer-events: auto;
+  visibility: visible;
+  z-index: 2;
+}
+
+.window_header {
+  width: auto;
+  height: 5%;
+  background-color: var(--accent);
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 10px;
+  padding-right: 10px;
+  flex: 0 0 auto;
+}
+
+.close_window {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+.close_window:hover {
+  cursor: pointer;
+  filter: brightness(75%);
+}
+
+.close_window > img {
+  height: 100%;
+  width: auto;
+}
+
+.window_title {
+  color: var(--primary);
+  font-size: 15px;
+}
+
+.window_top_holder {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.window_icon {
+  height: 20px;
+  width: 20px;
+}
+
+.window_icon img {
+  height: 20px;
+  width: 20px;
+}
+
+#boot {
+  position: fixed;
+  inset: 0;
+  background: black;
+  opacity: 1;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+  z-index: 9999;
+  display: block;
+}
+
+.logo {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+}
+
+.logo img {
+  width: 150px;
+  height: auto;
+}
+
+#bootlogo {
+  z-index: 9999;
+  transition: opacity 0.5s ease;
+}
+
+#load {
+  position: fixed;
+  transform: translateY(100px);
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  inset: 0;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+#load img {
+  width: 50px;
+  height: auto;
+}

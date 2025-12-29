@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SP_OS</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+
+  <body>
+    <div class="logo" id="bglogo"><img src="./img/logo.png" alt="" /></div>
+    <div id="app">
+      <div id="about_page">
+        <div class="window_header">
+          <div class="window_top_holder">
+            <div class="window_icon"><img src="./img/about.svg" alt="" /></div>
+            <p class="window_title">About</p>
+          </div>
+          <div class="close_window"><img src="img/close.svg" alt="" /></div>
+        </div>
+        <iframe src="about.html" title="About Page" loading="Loading...">
+        </iframe>
+      </div>
+      <div id="projects_page">
+        <div class="window_header">
+          <div class="window_top_holder">
+            <div class="window_icon"><img src="./img/about.svg" alt="" /></div>
+            <p class="window_title">Projects</p>
+          </div>
+          <div class="close_window"><img src="img/close.svg" alt="" /></div>
+        </div>
+        <iframe src="projects.html" title="Projects Page" loading="Loading...">
+        </iframe>
+      </div>
+      <div id="contact_page">
+        <div class="window_header">
+          <div class="window_top_holder">
+            <div class="window_icon"><img src="./img/about.svg" alt="" /></div>
+            <p class="window_title">Contact</p>
+          </div>
+          <div class="close_window"><img src="img/close.svg" alt="" /></div>
+        </div>
+        <iframe src="contact.html" title="Contact Page" loading="Loading...">
+        </iframe>
+      </div>
+    </div>
+    <div class="taskbar">
+      <div id="reboot"><img src="./img/restart.svg" alt="restart" /></div>
+      <div id="t_middle">
+        <div id="about"><img src="./img/about.svg" alt="about" /></div>
+        <div id="projects"><img src="./img/projects.svg" alt="projects" /></div>
+        <div id="contact"><img src="./img/mail.svg" alt="contact" /></div>
+      </div>
+      <div id="time_div">
+        <p id="time">00:00:00</p>
+      </div>
+    </div>
+    <div id="boot"></div>
+    <div class="logo" id="bootlogo"><img src="./img/logo.png" alt="" /></div>
+    <div id="load"><img src="./img/load.svg" alt="" /></div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
